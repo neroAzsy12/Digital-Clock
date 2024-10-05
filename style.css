@@ -12,7 +12,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #222833;
+    background: #2e2e44;
 }
 
 .digital-clock {
@@ -21,12 +21,38 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #c8d0de;
-    background: black;
+    color: #ffffff;
+    background: #2d2f41;
     width: 425px;
     padding: 20px 45px;
-    box-shadow: 0 5px 25px rbga(14, 21, 37, 0.8);
+    box-shadow: 0 5px 25px rgba(14, 21, 37, 0.8);
     border-radius: 10px; 
+}
+
+.digital-clock:before {
+    content: '';
+    position: absolute;
+    background: linear-gradient(45deg, #24ff6d, #2f93f1, #ff5e9a);
+    background-size: 200% 200%;
+    top: -5px;
+    left: -5px;
+    bottom: -5px;
+    right: -5px;
+    z-index: -1;
+    filter: blur(50px);
+    animation: glowing 10s ease infinite;
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
 }
 
 .time {
@@ -45,6 +71,11 @@ body {
     font-weight: 600;
     font-size: 6.5em;
     width: 125px;
+
+    background: -webkit-linear-gradient(90deg, blue, red);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
 }
 
 .minutes {
@@ -56,6 +87,11 @@ body {
     font-weight: 600;
     font-size: 6.5em;
     width: 125px;
+
+    background: -webkit-linear-gradient(90deg, #ce1fce, #eeee7f);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
 }
 
 .colon {
@@ -66,6 +102,7 @@ body {
     padding: 0 10px;
     line-height: 125px;
     font-size: 5em;
+    color: #929292;
 }
 
 .right-side {
@@ -86,6 +123,10 @@ body {
     transform: translateY(-20px);
     visibility: visible;
     opacity: 1;
+    background: -webkit-linear-gradient(90deg, red, yellow);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
 }
 
 .meridiem.active {
@@ -95,6 +136,10 @@ body {
 
 .seconds {
     transform: translateY(16px);
+    background: -webkit-linear-gradient(90deg, #24bc42, #2f69fa);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
 }
 
 .calendar {
@@ -104,6 +149,11 @@ body {
     font-size: 1.3em;
     font-weight: 500;
     margin-bottom: 10px;
+
+    background: -webkit-linear-gradient(90deg, #ae4dbb, #a45795);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
 }
 
 .month-name, .day-number {
@@ -115,21 +165,21 @@ body {
     top: 0;
     right: 0;
     margin: 10px;
-    color: white;
+    color: #efefef;
     font-size: 1.5em;
     cursor: pointer;
 }
 
 .dot-menu {
+    z-index: 999;
     position: absolute;
     top: 7px;
     right: 5px;
     list-style-type: none;   /* sets the marker for the list */
-    background: blue;
+    background: #353e54;
     padding: 10px 20px;
     border-radius: 5px;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
-    z-index: 999;
 
     visibility: hidden;
     opacity: 0;
@@ -159,7 +209,7 @@ body {
     align-items: center;
     width: 35px;
     height: 15px;
-    background: grey;
+    background: #485470;
     border-radius: 75px;
     box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 0.1),
                 inset -2px -2px 4px rgba(0, 0, 0, 0.2);
@@ -171,14 +221,18 @@ body {
     position: absolute;
     width: 14px;
     height: 14px;
-    background: white;
+    background: #ff5e9a;
     border-radius: 50%;
-    box-shadow: 0 5px 25px white;
+    box-shadow: 0 5px 25px #ff5e9a;
     transform: translateX(-10px);
+    transition: 0.3s ease;
+    transition-property: background, transform;
 }
 
 .format-switch-btn.active:before {
-    background: green;
-    box-shadow: 0 5px 25px green;
+    background: #0bff8d;
+    box-shadow: 0 5px 25px #0bff8d;
     transform: translateX(10px);
+    transition: 0.3s ease;
+    transition-property: background, transform;
 }
